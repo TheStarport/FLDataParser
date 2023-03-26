@@ -172,8 +172,8 @@ namespace Ini
 						continue;
 					}
 
-					// If its a number
-					if (part[0] == '-' || part[0] >= '0' && part[0] <= '9')
+					// Detect is the entire thing is a number (or dashes for negative numbers, technically allows all dashes but w/e)
+					if (std::ranges::all_of(part, [](const char c) { return isdigit(c) || c == '-'; }))
 					{
 						const std::string toConvert = std::string(part);
 						errno = 0;
