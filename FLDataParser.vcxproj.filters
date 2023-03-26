@@ -12,36 +12,72 @@
     <Filter Include="Source\Structures">
       <UniqueIdentifier>{3d7c508d-168b-4530-85dd-39fd6021960f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Includes\Structures">
+      <UniqueIdentifier>{4c2fdf33-eb38-407a-81cd-7e88be57a00d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Structures\Ini">
+      <UniqueIdentifier>{a9530038-2e19-4a4f-83b9-83aaec3dc77d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Structures\Ini">
+      <UniqueIdentifier>{6bd0d0a0-567f-47db-83c9-b9d51b5fb532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Exceptions">
+      <UniqueIdentifier>{15a10a83-f27a-4bd3-bb6c-03bb66596d97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Utils">
+      <UniqueIdentifier>{8c72d32c-ec57-4c53-9a9d-fd6933216131}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\DllMain.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\IniReader.cpp">
+    <ClCompile Include="Source\Reader.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Structures\FreelancerIni.cpp">
       <Filter>Source\Structures</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Inih.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="Source\Structures\INI\IniSection.cpp">
+      <Filter>Source\Structures\Ini</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Structures\INI\IniEntry.cpp">
+      <Filter>Source\Structures\Ini</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Structures\INI\BiniStringBlock.cpp">
+      <Filter>Source\Structures\Ini</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Includes\PCH.hpp">
-      <Filter>Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\IniReader.hpp">
+    <ClInclude Include="Includes\Reader.hpp">
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="Includes\Structures\FreelancerIni.hpp">
       <Filter>Includes</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\Inih.hpp">
+    <ClInclude Include="Includes\IniData.hpp">
       <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Structures\INI\IniSection.hpp">
+      <Filter>Includes\Structures\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Structures\INI\BiniStringBlock.hpp">
+      <Filter>Includes\Structures\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Structures\INI\IniEntry.hpp">
+      <Filter>Includes\Structures\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Exceptions\BiniParsingException.hpp">
+      <Filter>Includes\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Structures\INI\IniValueType.hpp">
+      <Filter>Includes\Structures\Ini</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Utils\Strings.hpp">
+      <Filter>Includes\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Exceptions\IniParsingException.hpp">
+      <Filter>Includes\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -22,16 +22,25 @@
     <None Include="vcpkg.json" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\DllMain.cpp" />
-    <ClCompile Include="Source\Inih.cpp" />
-    <ClCompile Include="Source\IniReader.cpp" />
+    <ClCompile Include="Source\Reader.cpp">
+      <FileType>CppCode</FileType>
+    </ClCompile>
     <ClCompile Include="Source\Structures\FreelancerIni.cpp" />
+    <ClCompile Include="Source\Structures\INI\BiniStringBlock.cpp" />
+    <ClCompile Include="Source\Structures\INI\IniEntry.cpp" />
+    <ClCompile Include="Source\Structures\INI\IniSection.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Includes\Inih.hpp" />
-    <ClInclude Include="Includes\IniReader.hpp" />
-    <ClInclude Include="Includes\PCH.hpp" />
+    <ClInclude Include="Includes\Exceptions\BiniParsingException.hpp" />
+    <ClInclude Include="Includes\Exceptions\IniParsingException.hpp" />
+    <ClInclude Include="Includes\IniData.hpp" />
+    <ClInclude Include="Includes\Reader.hpp" />
     <ClInclude Include="Includes\Structures\FreelancerIni.hpp" />
+    <ClInclude Include="Includes\Structures\INI\BiniStringBlock.hpp" />
+    <ClInclude Include="Includes\Structures\INI\IniEntry.hpp" />
+    <ClInclude Include="Includes\Structures\INI\IniSection.hpp" />
+    <ClInclude Include="Includes\Structures\INI\IniValueType.hpp" />
+    <ClInclude Include="Includes\Utils\Strings.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -42,26 +51,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -110,8 +119,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>PCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)Includes</AdditionalIncludeDirectories>
     </ClCompile>
@@ -120,6 +130,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <Lib>
+      <Name>FLDataParser</Name>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -129,8 +142,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>PCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)Includes</AdditionalIncludeDirectories>
     </ClCompile>
@@ -141,6 +155,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <Lib>
+      <Name>FLDataParser</Name>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,8 +165,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>PCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)Includes</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -158,6 +176,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <Lib>
+      <Name>FLDataParser</Name>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -167,8 +188,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Create</PrecompiledHeader>
-      <PrecompiledHeaderFile>PCH.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)Includes</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -179,6 +201,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <Lib>
+      <Name>FLDataParser</Name>
+    </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
