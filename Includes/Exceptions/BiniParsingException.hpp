@@ -4,14 +4,14 @@
 
 class BiniParsingException : std::exception
 {
-	std::string_view fileName;
-public:
-	BiniParsingException(const std::string_view& fileName) : fileName(fileName)
-	{
-	}
+        std::string_view fileName;
 
-	[[nodiscard]] char const* what() const override
-	{
-		return std::format("Unable to parse BINI file: {}", fileName).c_str();
-	}
+    public:
+        BiniParsingException(const std::string_view& fileName) : fileName(fileName) {}
+
+        [[nodiscard]]
+        const char* what() const override
+        {
+            return std::format("Unable to parse BINI file: {}", fileName).c_str();
+        }
 };

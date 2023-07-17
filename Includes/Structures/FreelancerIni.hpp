@@ -1,27 +1,26 @@
 #pragma once
 
-#include "Reader.hpp"
+#include "IniSerializer.hpp"
 
-namespace Ini
+class FreelancerIni final : Ini::IniFile
 {
-	struct Freelancer
-	{
-		struct FreelancerSubsection
-		{
-			std::string dataPath;
-			std::string localServer;
-			std::string initialWorld;
-			std::string appGuid;
-		};
+    public:
+        struct FreelancerSubsection : Ini::Subsection
+        {
+                std::string dataPath;
+                std::string localServer;
+                std::string initialWorld;
+                std::string appGuid;
 
-		FreelancerSubsection subsection;
-	};
+                FreelancerSubsection() = default;
+        };
 
-	class FreelancerIni final : public IniData
-	{
-	public:
-		void ParseIniData(const std::vector<IniSection>& sections) override
-		{
-		}
-	};
-}
+        FreelancerSubsection freelancer;
+
+        FreelancerIni() = default;
+};
+
+REFL_AUTO(type(FreelancerIni::FreelancerSubsection), Key(dataPath, "data path"), Key(localServer, "local_server"), Key(initialWorld, "initial_world"),
+          Key(appGuid, "appguid"));
+
+REFL_AUTO(type(FreelancerIni), Section(freelancer, "freelancer"));

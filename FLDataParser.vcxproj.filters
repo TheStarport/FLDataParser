@@ -27,6 +27,9 @@
     <Filter Include="Includes\Utils">
       <UniqueIdentifier>{8c72d32c-ec57-4c53-9a9d-fd6933216131}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Includes\Metadata">
+      <UniqueIdentifier>{64d49c71-1fcc-410c-935d-ccf5ef6a31b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />
@@ -34,9 +37,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Reader.cpp">
       <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Structures\FreelancerIni.cpp">
-      <Filter>Source\Structures</Filter>
     </ClCompile>
     <ClCompile Include="Source\Structures\INI\IniSection.cpp">
       <Filter>Source\Structures\Ini</Filter>
@@ -53,9 +53,6 @@
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="Includes\Structures\FreelancerIni.hpp">
-      <Filter>Includes</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\IniData.hpp">
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="Includes\Structures\INI\IniSection.hpp">
@@ -78,6 +75,12 @@
     </ClInclude>
     <ClInclude Include="Includes\Exceptions\IniParsingException.hpp">
       <Filter>Includes\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Metadata\1.hpp">
+      <Filter>Includes\Metadata</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\IniSerializer.hpp">
+      <Filter>Includes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

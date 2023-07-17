@@ -25,7 +25,6 @@
     <ClCompile Include="Source\Reader.cpp">
       <FileType>CppCode</FileType>
     </ClCompile>
-    <ClCompile Include="Source\Structures\FreelancerIni.cpp" />
     <ClCompile Include="Source\Structures\INI\BiniStringBlock.cpp" />
     <ClCompile Include="Source\Structures\INI\IniEntry.cpp" />
     <ClCompile Include="Source\Structures\INI\IniSection.cpp" />
@@ -33,7 +32,8 @@
   <ItemGroup>
     <ClInclude Include="Includes\Exceptions\BiniParsingException.hpp" />
     <ClInclude Include="Includes\Exceptions\IniParsingException.hpp" />
-    <ClInclude Include="Includes\IniData.hpp" />
+    <ClInclude Include="Includes\IniSerializer.hpp" />
+    <ClInclude Include="Includes\Metadata\1.hpp" />
     <ClInclude Include="Includes\Reader.hpp" />
     <ClInclude Include="Includes\Structures\FreelancerIni.hpp" />
     <ClInclude Include="Includes\Structures\INI\BiniStringBlock.hpp" />
@@ -118,7 +118,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -141,7 +141,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -164,7 +164,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -187,7 +187,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;FLDATAPARSER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);FLDataParser;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>

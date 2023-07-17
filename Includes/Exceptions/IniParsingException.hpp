@@ -4,16 +4,16 @@
 
 class IniParsingException final : std::exception
 {
-public:
-	std::string message;
+    public:
+        std::string message;
 
-	explicit IniParsingException(std::string file, std::string message, int lineNumber)
-		: message(std::format("Error parsing INI file. Message: {}\nLine Number: {}\nFile: {}", message, lineNumber, file))
-	{
-	}
+        explicit IniParsingException(std::string file, std::string message, int lineNumber)
+            : message(std::format("Error parsing INI file. Message: {}\nLine Number: {}\nFile: {}", message, lineNumber, file))
+        {}
 
-	[[nodiscard]] char const* what() const override
-	{
-		return message.c_str();
-	}
+        [[nodiscard]]
+        const char* what() const override
+        {
+            return message.c_str();
+        }
 };
